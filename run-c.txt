@@ -1,0 +1,10 @@
+1.519
+Received exception from server (version 26.9.5):
+Code: 241. DB::Exception: Received from localhost:9000. DB::Exception: Query memory limit exceeded: would use 103.90 MiB (attempt to allocate chunk of 4.19 MiB), maximum: 95.37 MiB: While executing MergeSorterSource. (MEMORY_LIMIT_EXCEEDED)
+(query: SELECT DISTINCT number
+FROM numbers_mt(100000000)
+FORMAT Null
+SETTINGS
+  max_memory_usage = 100000000,
+  max_bytes_before_external_distinct = 25000000
+)

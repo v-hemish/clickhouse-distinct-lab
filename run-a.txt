@@ -1,0 +1,11 @@
+0.063
+Received exception from server (version 26.9.5):
+Code: 241. DB::Exception: Received from localhost:9000. DB::Exception: Query memory limit exceeded: would use 162.76 MiB (attempt to allocate chunk of 131.56 MiB), maximum: 143.05 MiB.. (MEMORY_LIMIT_EXCEEDED)
+(query: SELECT DISTINCT number
+FROM numbers_mt(100000000)
+FORMAT Null
+SETTINGS
+  max_memory_usage = 150000000,
+  max_bytes_before_external_distinct = 0,
+  max_bytes_ratio_before_external_distinct = 0
+)
